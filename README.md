@@ -2,7 +2,7 @@
 
 A Hubot script that watch the users and theirs processing issue.
 
-![](http://img.f.hatena.ne.jp/images/fotolife/b/bouzuya/20140910/20140910144857.gif)
+![](http://img.f.hatena.ne.jp/images/fotolife/b/bouzuya/20140910/20140910145238.gif)
 
 ## Installation
 
