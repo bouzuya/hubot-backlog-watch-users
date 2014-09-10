@@ -97,7 +97,7 @@ module.exports = (robot) ->
                 usersAndIssues
           ), Promise.resolve()
         .then (usersAndIssues) ->
-          'backlog-watch-status:\n' +
+          'backlog-watch-users:\n' +
           usersAndIssues.filter((i) -> i.issue).map(({ user, issue }) -> """
           #{user.name} : #{baseUrl}/views/#{issue.issueKey} #{issue.summary}
           """).join '\n'
