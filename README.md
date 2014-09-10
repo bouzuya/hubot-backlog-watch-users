@@ -2,6 +2,8 @@
 
 A Hubot script that watch the users and theirs processing issue.
 
+![](http://img.f.hatena.ne.jp/images/fotolife/b/bouzuya/20140910/20140910144857.gif)
+
 ## Installation
 
     $ npm install git://github.com/bouzuya/hubot-backlog-watch-users.git
