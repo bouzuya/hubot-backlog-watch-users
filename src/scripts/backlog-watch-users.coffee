@@ -102,7 +102,7 @@ module.exports = (robot) ->
           #{user.name} : #{baseUrl}/views/#{issue.issueKey} #{issue.summary}
           """).join '\n'
         .then (message) ->
-          res.messageRoom(room, message)
+          robot.messageRoom(room, message)
     ), Promise.resolve()
 
   watch = ->
