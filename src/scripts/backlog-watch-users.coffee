@@ -108,7 +108,7 @@ module.exports = (robot) ->
 
   watch = ->
     next = ->
-      setTimeout (-> watch()), INTERVAL
+      setTimeout (-> watch()), interval
     displayUsers()
       .then next, next
 
