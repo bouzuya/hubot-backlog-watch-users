@@ -25,7 +25,7 @@ module.exports = (robot) ->
   apiKey = process.env.HUBOT_BACKLOG_WATCH_USERS_API_KEY
   projects = JSON.parse(process.env.HUBOT_BACKLOG_WATCH_USERS_PROJECTS ? '{}')
   interval = parseInt(
-    process.env.HUBOT_BACKLOG_WATCH_USERS_INTERVAL ? '3600,000', 10)
+    process.env.HUBOT_BACKLOG_WATCH_USERS_INTERVAL ? '3600000', 10)
 
   baseUrl = "https://#{spaceId}.backlog.jp"
 
@@ -102,7 +102,6 @@ module.exports = (robot) ->
           #{user.name} : #{baseUrl}/views/#{issue.issueKey} #{issue.summary}
           """).join '\n'
         .then (message) ->
-          console.log message
           res.messageRoom(room, message)
     ), Promise.resolve()
 
