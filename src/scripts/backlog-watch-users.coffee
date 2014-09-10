@@ -99,7 +99,7 @@ module.exports = (robot) ->
         .then (usersAndIssues) ->
           'backlog-watch-status:\n' +
           usersAndIssues.filter((i) -> i.issue).map(({ user, issue }) -> """
-          #{user.name} : #{baseUrl}/views/#{issue.issueKey} : #{issue.summary}
+          #{user.name} : #{baseUrl}/views/#{issue.issueKey} #{issue.summary}
           """).join '\n'
         .then (message) ->
           console.log message
