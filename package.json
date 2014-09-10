@@ -1,6 +1,6 @@
 {
   "name": "hubot-backlog-watch-users",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Hubot script that watch the users and theirs processing issue.",
   "main": "index.js",
   "scripts": {
