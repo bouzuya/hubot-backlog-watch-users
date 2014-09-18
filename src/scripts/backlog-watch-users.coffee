@@ -6,6 +6,7 @@
 #   "request": "^2.42.0"
 #
 # Configuration:
+#   HUBOT_BACKLOG_WATCH_USERS_USE_SLACK
 #   HUBOT_BACKLOG_WATCH_USERS_SPACE_ID
 #   HUBOT_BACKLOG_WATCH_USERS_API_KEY
 #   HUBOT_BACKLOG_WATCH_USERS_PROJECTS
@@ -21,6 +22,7 @@ module.exports = (robot) ->
   {Promise} = require 'q'
   request = require 'request'
 
+  useSlack = process.env.HUBOT_BACKLOG_WATCH_USERS_USE_SLACK
   spaceId = process.env.HUBOT_BACKLOG_WATCH_USERS_SPACE_ID
   apiKey = process.env.HUBOT_BACKLOG_WATCH_USERS_API_KEY
   projects = JSON.parse(process.env.HUBOT_BACKLOG_WATCH_USERS_PROJECTS ? '{}')
@@ -111,7 +113,8 @@ module.exports = (robot) ->
             "#{name} : #{baseUrl}/view/#{issue.issueKey} #{issue.summary}"
           ).join '\n'
         .then (message) ->
-          robot.messageRoom(room, message)
+          wrapped = if useSlack then '```\n' + message + '\n```' else message
+          robot.messageRoom(room, wrapped)
     ), Promise.resolve()
 
   watch = ->
