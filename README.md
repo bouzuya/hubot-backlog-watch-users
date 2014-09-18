@@ -17,8 +17,8 @@ or
 
     (every hours)
     hubot> backlog-watch-users:
-           bouzuya   : https://space.backlog.jp/views/HUBOT-123 special issue
-           emanon001 : https://space.backlog.jp/views/HUBOT-456 fix typo
+           bouzuya   : https://space.backlog.jp/view/HUBOT-123 special issue
+           emanon001 : https://space.backlog.jp/view/HUBOT-456 fix typo
 
 ## Configuration
 

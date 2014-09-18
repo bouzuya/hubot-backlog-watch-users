@@ -74,6 +74,11 @@ module.exports = (robot) ->
         else
           resolve res.body
 
+  rpad = (s, l) ->
+    while s.length < l
+      s += ' '
+    s
+
   displayUsers = ->
     Object.keys(projects).reduce ((promise, projectKey) ->
       project = null
@@ -97,10 +102,14 @@ module.exports = (robot) ->
                 usersAndIssues
           ), Promise.resolve()
         .then (usersAndIssues) ->
+          width = usersAndIssues.reduce (w, { user }) ->
+            Math.max(w, user.name.length)
+          , 0
           'backlog-watch-users:\n' +
-          usersAndIssues.filter((i) -> i.issue).map(({ user, issue }) -> """
-          #{user.name} : #{baseUrl}/views/#{issue.issueKey} #{issue.summary}
-          """).join '\n'
+          usersAndIssues.filter((i) -> i.issue).map(({ user, issue }) ->
+            name = rpad(user.name, width)
+            "#{name} : #{baseUrl}/view/#{issue.issueKey} #{issue.summary}"
+          ).join '\n'
         .then (message) ->
           robot.messageRoom(room, message)
     ), Promise.resolve()
